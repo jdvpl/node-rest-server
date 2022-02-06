@@ -4,6 +4,7 @@ class Server{
   constructor(){
     this.app = express();
     this.port = process.env.PORT || 3000;
+    this.usuariosRuta='/api/users';
     // middleware: son funcionalidads para el webserver
     this.middlewares();
     // rutas de mi app
@@ -11,34 +12,7 @@ class Server{
   }
 
   routes() {
-    this.app.get('/', (req, res) => {
-      res.json(
-        {
-          "Saitama":"JAa"
-        }
-        );
-    });
-    this.app.put('/', (req, res) => {
-      res.json(
-        {
-          "Saitama":"JAa"
-        }
-        );
-    });
-    this.app.post('/', (req, res) => {
-      res.json(
-        {
-          "Saitama":"JAa"
-        }
-        );
-    });
-    this.app.delete('/', (req, res) => {
-      res.json(
-        {
-          "Saitama":"JAa"
-        }
-        );
-    });
+    this.app.use(this.usuariosRuta, require('../routes/user.routes'))
   }
   listen() {
     this.app.listen(this.port, () => {
