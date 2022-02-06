@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 class Server{
   constructor(){
     this.app = express();
@@ -12,7 +12,32 @@ class Server{
 
   routes() {
     this.app.get('/', (req, res) => {
-      res.send("Saitama");
+      res.json(
+        {
+          "Saitama":"JAa"
+        }
+        );
+    });
+    this.app.put('/', (req, res) => {
+      res.json(
+        {
+          "Saitama":"JAa"
+        }
+        );
+    });
+    this.app.post('/', (req, res) => {
+      res.json(
+        {
+          "Saitama":"JAa"
+        }
+        );
+    });
+    this.app.delete('/', (req, res) => {
+      res.json(
+        {
+          "Saitama":"JAa"
+        }
+        );
     });
   }
   listen() {
@@ -22,6 +47,8 @@ class Server{
   }
 
   middlewares() {
+    // usar cors
+    this.app.use(cors());
     // directorio publico
     this.app.use(express.static("public"));
   }
