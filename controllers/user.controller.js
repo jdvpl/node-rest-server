@@ -2,7 +2,7 @@ const {response}=require('express')
 
 
 const userGet=(req, res=response) => {
-  const {q,api,name="Saitama"}=req.query;
+  const {q,api,name="Sin nombre"}=req.query;
   res.json(
     {
       "Get":"Desde el controller",
